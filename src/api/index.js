@@ -4,10 +4,10 @@ import config from '../config';
 const Bearer = JSON.parse(localStorage.getItem('token'));
 axios.defaults.withCredentials = true;
 
-if (config.env === 'development') {
-  axios.defaults.baseURL = 'http://localhost:9000/';
-} else {
+if (config.env === 'production') {
   axios.defaults.baseURL = 'https://fitness-app-backends.herokuapp.com/';
+} else {
+  axios.defaults.baseURL = 'http://localhost:9000/';
 }
 
 export const api = () => {
